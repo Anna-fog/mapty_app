@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="/icon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+
+    <title>mapty // Map your workouts</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <img src="logo.png" alt="Logo" class="logo" />
+
+      <ul class="workouts">
+        <form class="form hidden">
+          <div class="form__row">
+            <label class="form__label">Type</label>
+            <select class="form__input form__input--type">
+              <option value="running">Running</option>
+              <option value="cycling">Cycling</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label class="form__label">Distance</label>
+            <input class="form__input form__input--distance" placeholder="km" />
+          </div>
+          <div class="form__row">
+            <label class="form__label">Duration</label>
+            <input
+              class="form__input form__input--duration"
+              placeholder="min"
+            />
+          </div>
+          <div class="form__row">
+            <label class="form__label">Cadence</label>
+            <input
+              class="form__input form__input--cadence"
+              placeholder="step/min"
+            />
+          </div>
+          <div class="form__row form__row--hidden">
+            <label class="form__label">Elev Gain</label>
+            <input
+              class="form__input form__input--elevation"
+              placeholder="meters"
+            />
+          </div>
+          <button class="form__btn">OK</button>
+        </form>
+      </ul>
+
+      <div class="delete">
+        <svg class="delete-svg" width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 20C4.48583 20 0 15.5142 0 10C0 4.48583 4.48583 0 10 0C15.5142 0 20 4.48583 20 10C20 15.5142 15.5142 20 10 20ZM10 0.833333C4.94583 0.833333 0.833333 4.94583 0.833333 10C0.833333 15.0542 4.94583 19.1667 10 19.1667C15.0542 19.1667 19.1667 15.0542 19.1667 10C19.1667 4.94583 15.0542 0.833333 10 0.833333Z" fill="#ECECEC"/>
+          <path d="M6.75918 13.6575C6.65251 13.6575 6.54584 13.6167 6.46418 13.5358C6.30168 13.3733 6.30168 13.1092 6.46418 12.9467L12.9458 6.465C13.1083 6.3025 13.3725 6.3025 13.535 6.465C13.6975 6.6275 13.6975 6.89167 13.535 7.05417L7.05334 13.5358C6.97251 13.6167 6.86584 13.6575 6.75918 13.6575V13.6575Z" fill="#ECECEC"/>
+          <path d="M13.2408 13.6575C13.1342 13.6575 13.0275 13.6167 12.9458 13.5358L6.46418 7.05333C6.30168 6.89083 6.30168 6.62667 6.46418 6.46417C6.62668 6.30167 6.89084 6.30167 7.05334 6.46417L13.535 12.9458C13.6975 13.1083 13.6975 13.3725 13.535 13.535C13.4542 13.6167 13.3475 13.6575 13.2408 13.6575V13.6575Z" fill="#ECECEC"/>
+        </svg>
+      </div>
+
+      <p class="copyright">
+        &copy; Copyright by
+        <a
+          class="twitter-link"
+          target="_blank"
+          href="https://twitter.com/jonasschmedtman"
+          >Jonas Schmedtmann</a
+        >. Use for learning or your portfolio. Don't use to teach. Don't claim
+        as your own.
+      </p>
+    </div>
+
+    <div class="overlay">
+      <div class="modal">Inputs have to be positive numbers <span class="close-modal">&times;</span></div>
+    </div>
+
+    <div id="map"></div>
+
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
